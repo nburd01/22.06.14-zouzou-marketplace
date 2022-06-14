@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from "axios";
+import Apartments from './components/apartments';
+import React, { useEffect, useState } from 'react';
+
+const API_URL = "http://localhost:3000/apartments";
+
+  function getAPIDATA() {
+    return axios.get(API_URL).then((response) => response.data)
+  }
+
 
 function App() {
+  const [apartments, setApartments] = useState([]);
+
+  useEffect(() => {
+    let mounted = true; 
+    getAPIDATA().then((items) => {
+      if (mounted) {
+        setApartments(items);
+      }
+  });
+  
+  return () => { (mounted = false) };
+
+}, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Bonjour à tous, et bienvenue dans cette table ronde... et moi je viens de l'APP.JS</h1>
+      <Apartments apartments={apartments} />
+      
     </div>
+    
   );
 }
 
