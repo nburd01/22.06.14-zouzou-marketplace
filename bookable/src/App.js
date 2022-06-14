@@ -4,7 +4,7 @@ import axios from "axios";
 import Apartments from './components/apartments';
 import React, { useEffect, useState } from 'react';
 
-const API_URL = "http://localhost:3000/apartments";
+const API_URL = "http://localhost:3000/api/v1/apartments";
 
   function getAPIDATA() {
     return axios.get(API_URL).then((response) => response.data)
