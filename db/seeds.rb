@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require 'faker'
+
+Apartment.delete_all
+
+  30.times do |i|
+    Apartment.create(title:Faker::Games::SuperMario.location, body:Faker::Games::LeagueOfLegends.quote, price:rand(50000..300000) )
+  end
