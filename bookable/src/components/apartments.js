@@ -7,8 +7,9 @@ function Apartments(props) {
       {props.apartments.map((apartment) => {
         return (
           <div key={apartment.id}>
-            <h2>{apartment.title}</h2>
+            <h2 className="text-3xl font-bold underline">{apartment.title}</h2>
             <p>{apartment.body}</p>
+            <p>{apartment.price} €</p>
           </div>
         );
       })}
@@ -18,29 +19,4 @@ function Apartments(props) {
 
 export default Apartments;
 
-
-// import React from 'react'
-
-// function Apartments(props) {
-//   return (
-//     <div>
-//         <h1>Ces appartements proviennent de l'API mec (et je viens des components)</h1>
-//             {props.apartments.map((apartment) => {
-                
-//             return (
-//             <div key={apartment.id}>
-//                     <h2>{apartment.title}</h2>  
-//                     <p>{apartment.body}</p>
-//                     <p>{apartment.price}</p>
-//             </div>
-//             );
-
-            
-                    
-//         })}
-//     </div>
-//   )
-// }
-
-// export default Apartments;
 
